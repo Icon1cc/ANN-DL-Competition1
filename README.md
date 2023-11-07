@@ -1,47 +1,75 @@
-# ANN-DL-Competition1
+# ANN-DL Competition1: Binary Image Classification Challenge
 
-This homework assignment is structured as a binary classification problem where you need to predict classes for images in a test set, using a model trained on a provided training set. The competition is divided into two phases, and your performance will be evaluated based on accuracy. Here is a step-by-step guide to complete this homework:
+Welcome to the Artificial Neural Networks and Deep Learning 2023 course's first homework assignment. This challenge involves a binary classification task to classify plant images based on their health state.
+
+## Overview
+
+In this homework, you are tasked to predict classes for images in a test set using a model trained on a provided training set. The competition is divided into two phases with a focus on accuracy as the primary evaluation metric.
+
+## Getting Started
+
+### Understanding the Task
+
+- **Dataset:** Access the dataset from the 'Participate/Get Data' page on CodaLab. Familiarize yourself with the number of images, their dimensions, and class distribution.
+- **Evaluation Criteria:** Review the evaluation criteria on the 'Learn the Details/Evaluation' page. Accuracy is the key metric for evaluation.
+
+### Setting Up Your Environment
+
+- **Google Form Subscription:** Ensure your CodaLab details match those submitted in the Google Form, including email and team name.
+- **Development Environment:**
+  - **Local Setup:** For GPU support, follow TensorFlow's GPU support guide.
+  - **Cloud Options:** Utilize Google Colaboratory or Kaggle for free GPU resources, within usage limits.
+
+## Development Phase
+
+### Data Preparation
+
+- **Preprocessing:** Implement resizing, normalization, and data augmentation to prepare the images for your neural network.
+
+### Model Development
+
+- **Framework:** Use TensorFlow and Keras for model development.
+- **Architecture:** Start with CNNs and experiment with various layers and hyperparameters.
+- **Training:** Employ strategies like validation splits, early stopping, and checkpointing.
+- **Local Evaluation:** Test your model locally using a validation set or cross-validation.
+
+## Submission Guidelines
+
+- **Code Requirements:** Ensure your code is clean, well-commented, and follows the submission guidelines on CodaLab.
+- **Forum Participation:** Engage in the competition forum for discussions and idea exchanges.
+
+## Competition Phases
 
 ### Phase 1: Development Phase
-1. **Analyze the Training Data:** Begin by exploring the provided training data. Understand its structure, format, and the nature of the images.
 
-2. **Preprocess the Data:** Depending on your findings, apply necessary preprocessing steps like normalization, augmentation, etc., to prepare the data for training.
-
-3. **Model Development:** Create a binary classification model using TensorFlow, as this is the primary library available in the competition's environment. Consider using architectures known for image classification like CNNs.
-
-4. **Training:** Train your model on the training dataset. Implement strategies like cross-validation to optimize the model's performance.
-
-5. **Local Testing:** Test your model locally using a part of the training set as a pseudo-test set to estimate its performance.
-
-6. **Prepare Submission:** Once you're satisfied with the model's performance, prepare your submission. This should include the `model.py` file with the model's definition, including `__init__` and `predict` functions, and an empty `metadata` file.
-
-7. **Submit for Evaluation:** Upload your submission to the competition platform for evaluation against the hidden test set. Monitor your performance on the leaderboard.
+- **Analyze Training Data:** Understand the training data's structure and nature.
+- **Prepare Submission:** Include `model.py` and an empty `metadata` file.
+- **Submit for Evaluation:** Monitor performance on the leaderboard.
 
 ### Phase 2: Final Phase
-1. **Re-evaluate Your Model:** Based on your results from Phase 1, make any necessary adjustments to your model.
 
-2. **Final Submission:** You are allowed up to two submissions in this phase. Choose the best version of your model for submission.
+- **Model Re-evaluation:** Adjust your model based on Phase 1 outcomes.
+- **Final Submission:** You're allowed up to two submissions.
 
-3. **Submission Preparation:** Follow the same format as in Phase 1 for preparing your submission.
+## Additional Requirements
 
-### Additional Requirements
-- **Final Report:** Prepare a 3-page report detailing your approach, methodologies, experiments, and findings. The report should be concise, technical, and well-structured, including illustrations and clear descriptions.
-- **Code Documentation:** Ensure your submitted code is well-commented and documented, explaining the functions, variables, and key steps.
-- **Contributions Section:** Include a section in your report outlining the specific contributions of each team member.
+- **Final Report:** Prepare a detailed 3-page report in Calibri, Times New Roman, or Arial (size 11).
+- **Code Documentation:** Comment your code thoroughly.
+- **Contributions Section:** Clearly outline each team member's contributions.
 
-### Email Submission
-- **Compose an Email:** Follow the specified format, including team member details, leaderboard nickname, and attachments (code and report).
-- **Attachments:** Attach the `LEADERBOARD_NICKNAME.zip` file containing your notebooks or Python scripts and the 3-page report.
+## Email Submission
 
-### Important Notes
-- **Consistency with Report:** Your code and experiments should align with what is described in your report.
-- **Active Links:** If you're using external links, ensure they remain active for at least two months.
-- **Formatting:** The report should be in Calibri, Times New Roman, or Arial, with a size of 11.
-- **Adherence to Specifications:** Strictly follow all specified requirements for the email content and attachments.
+- **Email Format:** Follow the specified format with team details and attachments.
+- **Attachments:** Include `LEADERBOARD_NICKNAME.zip` with your code and report.
 
-### Final Tips
-- **Experiment Systematically:** Conduct thorough experiments, including ablation studies and testing alternative architectures.
-- **Optimize Performance:** Focus on improving the accuracy of your model, as this is the key evaluation metric.
-- **Quality Over Quantity:** In your report and code, prioritize clarity, technical soundness, and conciseness.
+## Tips for Success
 
-Following these steps and tips should guide you effectively through the homework assignment.
+- **Simplicity:** Start with a basic model and enhance complexity gradually.
+- **Systematic Experimentation:** Track experiments and their outcomes.
+- **Resource Utilization:** Use Google Colab or Kaggle if lacking a local GPU.
+- **Backup Regularly:** Especially when working on cloud platforms.
+- **Stay Informed:** Follow forum discussions for updates and insights.
+
+## Final Note
+
+Remember, this is a collaborative learning experience. Engage with your classmates and share insights to enhance your understanding and performance.
