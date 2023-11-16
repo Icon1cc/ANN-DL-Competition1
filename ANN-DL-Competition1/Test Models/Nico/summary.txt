@@ -1,0 +1,28 @@
+Mark I:
+The simplest solution. Normalizes the pixels in the input images to a float range [0, 1], one-hot encodes the output labels, and feeds to a LeNet-5 network. The network is trained using categorical cross entropy, Adam optimizer, and early stopping (wrt the validation accuracy).
+val_accuracy  = 0.6721153846153847
+test_accuracy = 0.6100
+
+Mark II:
+Expansion of Mark I. Using extra convolution and maxpooling layers, dropout layers and ReLU activations.
+val_accuracy  = 0.7163461538461539
+test_accuracy = 0.6100
+
+Mark III:
+A binary output version of Mark II. I.e. we have a single output neuron with sigmoid activation. Also some hyperparameter (batch size and early stop patience) was tweaked. But otherwise same network architecture.
+val_accuracy  = 0.7326923076923076
+test_accuracy = ?
+
+Mark IV:
+Similar architecture to Mark II, but significantly more neurons in the classification part of the network. More importantly, ImageDataGenerator was used to train the model with augmented data. Also, early stopping was done wrt cross categorical entropy loss (instead of accuracy).
+val_accuracy  = 0.8067307692307693
+test_accuracy = 0.61
+
+Mark V:
+A completely new direction. Mark V performs Transfer Learning and Fine Tuning on the ConvNeXtLarge network, pretrained on the imagenet data set. The model uses the same data augmentation used in Mark IV, but on a (manually) cleaned version of the data set (the original data set contained about 200 non-plant images).
+val_accuracy  = 0.916
+test_accuracy = 0.91
+
+Mark V hypertuned:
+See 'mark_V_stats.xlsx'.
+
