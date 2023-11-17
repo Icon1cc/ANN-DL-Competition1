@@ -7,7 +7,7 @@ import os
 from PIL import Image
 
 
-def augment_image(X, rotation = 0.2, zoom = 0.2,  flip = "horizontal", translation = 0.2):
+def augment_image(X, rotation = 90, zoom = 0.2,  flip = "horizontal", translation = 0.2):
     rotation_ = tf.keras.Sequential([
     tfkl.RandomRotation(rotation),
     ])
@@ -53,7 +53,7 @@ def equalize_classdistribution(X_healthy, X_unhealthy, y_healthy, y_unhealthy):
         X = X_unhealthy.copy()
         y = y_unhealthy.copy()
         random_indices = np.random.randint(0, len(X), size=diff)
-        X_unhealthy_augmented = augment_image(X[random_indices], rotation = 0.2, zoom = 0,  flip = "horizontal")
+        X_unhealthy_augmented = augment_image(X[random_indices], rotation = 90, zoom = 0.2,  flip = "horizontal")
         X_unhealthy_augmented = X_unhealthy_augmented.numpy()
         y_unhealthy_augmented = y[random_indices]
         # Concatenate the augmented diseased plants with the diseased plants
@@ -65,7 +65,7 @@ def equalize_classdistribution(X_healthy, X_unhealthy, y_healthy, y_unhealthy):
         y = y_healthy.copy()
         diff = -diff
         random_indices = np.random.randint(0, len(X), size=diff)
-        X_healthy_augmented = augment_image(X[random_indices], rotation = 0.2, zoom = 0.2,  flip = "horizontal")
+        X_healthy_augmented = augment_image(X[random_indices], rotation = 90, zoom = 0.2,  flip = "horizontal")
         X_healthy_augmented = X_healthy_augmented.numpy()
         y_healthy_augmented = y[random_indices]
         # Concatenate the augmented diseased plants with the diseased plants
@@ -94,9 +94,12 @@ unhealthy_path = os.getcwd() + "/unhealthy"
 X_healthy = load_images_from_folder(healthy_path)
 X_unhealthy = load_images_from_folder(unhealthy_path)
 
+print(f"Number of healthy images: {len(X_healthy)}")
+print(f"Number of unhealthy images: {len(X_unhealthy)}")
+
 x = np.concatenate((X_healthy, X_unhealthy))
 y = np.concatenate((np.zeros(len(X_healthy)), np.ones(len(X_unhealthy))))
-np.savez_compressed("clean.npz", data=x, labels=y)git
+np.savez_compressed("clean.npz", data=x, labels=y)
 print(X_healthy.shape)
 print(X_unhealthy.shape)
 
@@ -105,9 +108,16 @@ X_healthy, X_unhealthy, y_healthy, y_unhealthy = equalize_classdistribution(X_he
 X = np.concatenate((X_healthy, X_unhealthy))
 y = np.concatenate((y_healthy, y_unhealthy))
 
-#Plot the last image in X
+#Plot the last 10 images in X
 import matplotlib.pyplot as plt
-plt.imshow(X[-1])
+fig, ax = plt.subplots(2, 5)
+
+for i in range(2):
+    for j in range(5):
+        ax[i, j].imshow(X[-(i*5+j+1)])
+        ax[i, j].set_title(f"Label: {y[-(i*5+j+1)]}")
+        ax[i, j].axis("off")
+
 plt.show()
 
 
