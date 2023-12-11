@@ -1,55 +1,60 @@
 # Artificial Neural Networks and Deep Learning 2023 - Homework 2: Time Series Forecasting
 
 ## Overview
-This repository documents our journey in the second homework of the Artificial Neural Networks and Deep Learning course, where we tackled a Time Series Forecasting challenge. The objective was to design and implement models to predict future samples of uncorrelated time series, emphasizing generalization capabilities.
+Welcome to "The Avengers" team's repository for Homework 2 in the Artificial Neural Networks and Deep Learning course. This challenge involved forecasting future values of various uncorrelated time series, demanding a robust model capable of generalizing from past observations.
 
-## Project Structure
-- `Dataset`: Contains the training dataset and related files.
-- `Practice Models`: Jupyter notebooks used for exploration and analysis.
-- `Final Submission`: Contains our final report and final model detailing the approach and methodology.
+## Repository Structure
+- `Challenge_2/`
+  - `Dataset/`: Contains the provided training data for model development.
+  - `Practice Models/`: Jupyter notebooks and scripts used for preliminary model trials and experimentation.
+  - `Final Submission/Final Model/`: Directory holding the definitive models and their respective training and validation scripts.
+  - `Team Models/`: Collaborative space where our team's models are developed and refined for the final submission.
 
 ## Data
-The challenge provided a dataset of monovariate time series from six different categories. The dataset, structured as a numpy array, comprised 48,000 time series of varying lengths, padded to a maximum length of 2776.
+The dataset includes monovariate time series data across six different categories, with each series padded to a uniform length for processing convenience.
 
-- `training_data.npy`: Main dataset file.
-- `valid_periods.npy`: Information to recover original time series lengths.
-- `categories.npy`: Category information for each time series.
+### Data Details:
+- `training_data.npy`: The training time series data.
+- `valid_periods.npy`: Start and end indices for the actual series length.
+- `categories.npy`: Classification of each time series into one of six possible categories.
 
-### Data Handling
-We loaded the data using `numpy.load()` and performed preprocessing to align the series with the required format for our models.
+### Data Loading
+To facilitate reproducibility and consistency, we employed `numpy.load()` for data ingestion and preprocessing.
 
 ## Approach
-1. **Exploratory Data Analysis**: We began by exploring the dataset to understand the characteristics and patterns in the time series.
-2. **Model Development**: Leveraging TensorFlow and Keras, we experimented with various forecasting models, including LSTM and GRU networks.
-3. **Training and Validation**: Models were trained on the provided dataset, with careful consideration of overfitting and underfitting.
-4. **Performance Evaluation**: We evaluated our models based on the Mean Squared Error (MSE) metric, ensuring robustness and generalizability.
+Our methodology encompassed the following key steps:
+1. **Exploratory Analysis**: Initial data exploration to identify patterns and inform model selection.
+2. **Model Prototyping**: Utilizing TensorFlow and Keras, we developed and tested various forecasting models, including LSTM and GRU.
+3. **Model Refinement**: Iterative training and validation to mitigate overfitting and refine predictions.
+4. **Evaluation**: Model performance was quantitatively assessed using the Mean Squared Error (MSE) metric.
 
-## Phases of Competition
-- **Phase 1**: Development phase where we trained models on the provided data and evaluated on a hidden test set.
-- **Phase 2**: Final phase where we made limited submissions, evaluated on a comprehensive test set.
+## Competition Phases
+The competition was divided into two phases:
+- **Phase 1**: Development stage, focusing on model training and preliminary testing.
+- **Phase 2**: Final stage, where refined models were submitted for evaluation against an unseen test set.
 
-## Submission
-Our submissions consisted of a zip file containing `model.py` and an empty `metadata` file, adhering to the specified format.
+## Submission Process
+Our team's submission consists of the required `model.py` and `metadata` files within the `Final Submission/Final Model/` directory.
 
 ## Computing Environment
-We ensured compatibility with the provided environment, primarily using TensorFlow 2.14.0 and other listed libraries.
+We aligned our development environment with the specified competition setup, including TensorFlow 2.14.0 and other predefined libraries.
 
-## Final Evaluation
-- **Leaderboard Performance**: Our models were assessed based on their MSE scores on the leaderboard.
-- **Technical Report**: A detailed 3-page report was submitted, outlining our approach, methodology, and significant findings.
+## Final Assessment
+Evaluations consider both the leaderboard rankings and the comprehensiveness of our technical report.
 
-## Team Contributions
-Each team member actively participated in various aspects of the project, from data analysis to model development and evaluation.
+## Team Collaboration
+The `Team Models/` directory is a testament to our collaborative efforts, encapsulating the developmental journey of our predictive models.
 
-## Instructions for Replicating Results
+## Replication Instructions
+To replicate our findings or scrutinize our methodology:
 1. Clone the repository.
-2. Run the Jupyter notebooks in `Dataset` for data exploration.
-3. Execute scripts in `Practice Models` for training and evaluating models.
-4. Refer to the `Final Submission` folder for in-depth methodology and insights.
+2. Navigate to `Dataset/` for data exploration.
+3. Execute the contents within `Practice Models/` for insights into our iterative process.
+4. Review our `Final Submission/Final Model/` for a comprehensive understanding of our approach.
 
-## Additional Information
-- For detailed methodology and analysis, refer to our project report in the `reports/` folder.
-- Code comments and documentation provide further insights into the implementation.
+## Additional Notes
+- In-depth technical details and analyses are available in our project report within the `Final Submission/` directory.
+- Code annotations and thorough documentation are provided for clarity.
 
-## Acknowledgements
-We thank the course instructors and TAs for their guidance and the well-structured challenge that enabled us to apply our learnings in a practical setting.
+## Acknowledgments
+Our gratitude goes out to the course staff for their support and to each team member for their dedication and hard work.
