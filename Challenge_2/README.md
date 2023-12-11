@@ -43,9 +43,9 @@ Each team member actively participated in various aspects of the project, from d
 
 ## Instructions for Replicating Results
 1. Clone the repository.
-2. Run the Jupyter notebooks in `notebooks/` for data exploration.
-3. Execute scripts in `src/` for training and evaluating models.
-4. Refer to the `reports/` folder for in-depth methodology and insights.
+2. Run the Jupyter notebooks in `Dataset` for data exploration.
+3. Execute scripts in `Practice Models` for training and evaluating models.
+4. Refer to the `Final Submission` folder for in-depth methodology and insights.
 
 ## Additional Information
 - For detailed methodology and analysis, refer to our project report in the `reports/` folder.
