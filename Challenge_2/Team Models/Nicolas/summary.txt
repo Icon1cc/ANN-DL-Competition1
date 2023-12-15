@@ -1,0 +1,29 @@
+GRU-v1:
+Simple architecture consisting of a single GRU layer, a dropout layer, and a dense layer (output). The data is preprocessed by extracting sequences from each time series and concatenating all samples. The category is also fed as input, encoded as a float in range [0, 1]. 
+val_mse = 0.00637434097006917
+test_mse = 0.0063846023
+
+GRU-v2:
+Removes bias from v1, by shuffling the data and drawing independent samples from the time series; (samples from) each time series is only featured in either the training (x)or the validation set. In this way, the model is more generealized to new, uncorrelated time series.
+val_mse = 0.007594855967909098
+test_mse = 0.0056926571
+
+GRU-v3:
+Sometimes, evolving means going backwards; This model works like v2, but completely ignores the category data. I.e. it only predicts on the time series values. 
+val_mse = 0.0074338107369840145
+test_mse = 0.0055889711
+
+GRU-v4-protptype:
+Like version v2 but using one-hot-encoding for the categories, and much larger seq_length. Problem is memory overflowing (both RAM and VRAM). This is temporarily solved by generating samples at run time, but the kernel still dies when doing too many epochs with too much data. Also, it is not clear how well the generation part works, might be overfitting.
+val_mse = 0.007340727839618921
+test_mse = 0.0076218024
+
+LSTM-v1:
+Processes the data in the same way as GRU-v3. The architecture is more complex; consists of two blocks of LSTMs, batch normalization, and dropout layers. The first block's LSTM layer is bidirectional and uses regularizers. Also, the seq_length has been heavily increased.
+val_mse = 0.005525793880224228
+test_mse = 0.0055603902
+
+LSTM-v2:
+Same data preprocessing and model architecture as v1. But each category is processed separately, and we train one model for each category.
+val_mse_avg = 0.005759823213641842
+test_mse = 0.0059656375
