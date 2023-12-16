@@ -27,3 +27,7 @@ LSTM-v2:
 Same data preprocessing and model architecture as v1. But each category is processed separately, and we train one model for each category.
 val_mse_avg = 0.005759823213641842
 test_mse = 0.0059656375
+
+LSTM-v2 x LSTM-v1:
+Using models from v2 for forecasting categories A-E, and the more general model v1 for category F. Works well since there was very few samples of F compared to the other categories.
+test_mse = 0.0053979298
