@@ -34,5 +34,5 @@ test_mse = 0.0053979298
 
 LSTM-v3:
 A Conv-LSTM. Consists of a CNN to extract features, which output is then fed into a single LSTM layer, and then mapped to the output (dense) layer. 
-val_mse = 0.005256765056401491
-test_mse = 0.0069253338
+val_mse = 0.004765303339809179
+test_mse = 0.0065084044
