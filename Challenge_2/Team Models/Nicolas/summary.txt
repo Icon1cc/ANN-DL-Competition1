@@ -31,3 +31,13 @@ test_mse = 0.0059656375
 LSTM-v2 x LSTM-v1:
 Using models from v2 for forecasting categories A-E, and the more general model v1 for category F. Works well since there was very few samples of F compared to the other categories.
 test_mse = 0.0053979298
+
+LSTM-v3:
+A Conv-LSTM. Consists of a CNN to extract features, which output is then fed into a single LSTM layer, and then mapped to the output (dense) layer. 
+val_mse = 0.004765303339809179
+test_mse = 0.0065084044
+
+LSTM-v4:
+Same as v1, but the data is further (the original data was already scaled between 0 and 1) normalized; using robust scalers.
+val_mse = 0.005323225166648626
+test_mse = 0.004927652
