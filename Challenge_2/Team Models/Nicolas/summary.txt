@@ -1,3 +1,7 @@
+*********
+PHASE ONE
+*********
+
 GRU-v1:
 Simple architecture consisting of a single GRU layer, a dropout layer, and a dense layer (output). The data is preprocessed by extracting sequences from each time series and concatenating all samples. The category is also fed as input, encoded as a float in range [0, 1]. 
 val_mse = 0.00637434097006917
@@ -41,3 +45,17 @@ LSTM-v4:
 Same as v1, but the data is further (the original data was already scaled between 0 and 1) normalized; using robust scalers.
 val_mse = 0.005323225166648626
 test_mse = 0.004927652
+
+*********
+PHASE TWO
+*********
+
+LSTM-v4-18samples:
+Identical to v4, but predicts 18 steps forward.
+val_mse = 0.007913871668279171
+final_test_mse = 0.0119645847
+
+LSTM-v4-extended-preds:
+Uses the saved LSTM-v4 model; predicts 9 steps, extends X and then predicts the next 9 steps => total 18 samples forward.
+val_mse = 0.007921374402940273
+final_test_mse = 0.009856293
