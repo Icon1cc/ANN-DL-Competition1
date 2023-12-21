@@ -6,7 +6,7 @@ import joblib
 
 num_categories = 6
 seq_length_LSTM = 128        # predictions based on previous seq_length data entries
-forecast_length = 9     # predicting forecast_length time steps into the future (9 for Phase 1, 18 for Phase 2)
+forecast_length = 18     # predicting forecast_length time steps into the future (9 for Phase 1, 18 for Phase 2)
 seq_length_GRU = 26         # predictions based on previous seq_length data entries
 sample_length_GRU = seq_length_GRU + forecast_length
 sample_length_LSTM = seq_length_LSTM + forecast_length
@@ -25,7 +25,7 @@ class model:
         X_LSTM = X[:, -seq_length_LSTM:]
         X_GRU = X[:, -seq_length_GRU:]
         X_1 = self.model[0].predict(X_LSTM)+self.model[1].predict(X_GRU)  # shape forecast_length
-        X_ = np.concatenate((X_[:, telescope:],X_1), axis=1)
+        X_ = np.concatenate((X[:, telescope:],X_1), axis=1)
         X_1_GRU = X_[:, -seq_length_GRU:]
         X_1_LSTM = X_[:, -seq_length_LSTM:]
         X_2 = self.model[0].predict(X_1_LSTM)+self.model[1].predict(X_1_GRU)
@@ -38,7 +38,7 @@ class model:
         y_pred = self.model[2].predict(X) 
         X18 = self.rscaler_y.inverse_transform(y_pred.reshape((-1, forecast_length)))
 
-        return X_+X18/3
+        return (X_+X18)/3
 
 
 
