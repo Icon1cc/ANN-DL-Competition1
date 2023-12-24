@@ -61,6 +61,9 @@ Forecasting future values of uncorrelated time series.
 #### Replication Instructions
 - Clone the repository and explore `Dataset/` and `Practice Models/`.
 
+#### Submission Requirements
+- Final submission emailed to an2dl.competitions@gmail.com.
+
 #### Acknowledgments
 - Gratitude to course staff and team members.
 
